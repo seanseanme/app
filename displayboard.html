@@ -1,0 +1,23 @@
+<!-- <h1> my first angular2 app</h1>
+
+<h1>{{title}} + {{user.status}}</h1>
+{{user.name}}
+
+<input type="number" [(ngModel)]="user.delay" (keyup)=isontime(user.delay)>
+{{user.delay}}
+
+<div class="bb" [ngClass]="{isgreen: onTime, isyellow: delayed, isred: superdelayed}"> <h1>Sean is {{bulletin}} </h1>
+</div>
+
+-->
+
+<div *ngFor="#person of userlist" >
+ <input type="number" [(ngModel)]="person.delay" (keyup)=personisontime(person,person.delay) >
+<p [ngClass]="{isgreen: person.onTime, isyellow: person.delayed, isred: person.superdelayed}"> {{person.name}} is {{person.status}}</p> 
+</div>
+
+  New Hero:
+  <input #newHero />
+  <button (click)="addUser(newHero.value); newHero.value=''">
+    Add Hero. er. User
+  </button>
