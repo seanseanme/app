@@ -1,4 +1,4 @@
-System.register(['angular2/router', 'angular2/core'], function(exports_1) {
+System.register(['angular2/core', './user.service', './dummy.component', './dashboard.component', 'angular2/router'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,15 +8,24 @@ System.register(['angular2/router', 'angular2/core'], function(exports_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var router_1, core_1;
+    var core_1, user_service_1, dummy_component_1, dashboard_component_1, router_1;
     var TopComponent;
     return {
         setters:[
-            function (router_1_1) {
-                router_1 = router_1_1;
-            },
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (user_service_1_1) {
+                user_service_1 = user_service_1_1;
+            },
+            function (dummy_component_1_1) {
+                dummy_component_1 = dummy_component_1_1;
+            },
+            function (dashboard_component_1_1) {
+                dashboard_component_1 = dashboard_component_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
             }],
         execute: function() {
             TopComponent = (function () {
@@ -25,19 +34,19 @@ System.register(['angular2/router', 'angular2/core'], function(exports_1) {
                 }
                 TopComponent = __decorate([
                     core_1.Component({
-                        selector: 'my-top',
-                        template: "\n  <h1>{{title}}</h1>\n  <a [routerLink]=\"['Heroes']\">Heroes</a>\n  <router-outlet></router-outlet>\n",
-                        directives: [router_1.ROUTER_DIRECTIVES],
+                        selector: 'my-app',
+                        template: "\n        <h1>{{title}}</h1>\n        <h2>routing here!</h2>\n\t<a [routerLink]=\"['Dummy']\">Dummylink </a>\n\t <router-outlet></router-outlet>\n\t<my-dashboard></my-dashboard>\n\t<my-dash></my-dash>\n      ",
+                        directives: [dummy_component_1.DummyComponent, dashboard_component_1.DashboardComponent, router_1.ROUTER_DIRECTIVES],
                         providers: [
                             router_1.ROUTER_PROVIDERS,
-                            UserService
+                            user_service_1.UserService
                         ]
                     }),
                     router_1.RouteConfig([
                         {
-                            path: '/heroes',
-                            name: 'Heroes',
-                            component: HeroesComponent
+                            path: '/dummy',
+                            name: 'Dummy',
+                            component: dashboard_component_1.DashboardComponent
                         }
                     ]), 
                     __metadata('design:paramtypes', [])
@@ -48,4 +57,5 @@ System.register(['angular2/router', 'angular2/core'], function(exports_1) {
         }
     }
 });
-//# sourceMappingURL=top.component.js.map
+/**works with dummy component**/ 
+//# sourceMappingURL=topelement.js.map

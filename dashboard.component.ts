@@ -1,11 +1,10 @@
-import {Component,provide} from 'angular2/core';
+import {Component,provide, OnInit} from 'angular2/core';
 
 import {NgClass} from 'angular2/common';
 import {HTTP_PROVIDERS} from 'angular2/http';
 import { User} from './user';
 import {UserService} from './user.service';
 import {UserData}  from './user-data';
-import {provide}           from 'angular2/core';
 import {XHRBackend}        from 'angular2/http';
 
 // in-memory web api imports
@@ -15,26 +14,32 @@ import {UserData}          from '../user-data';
 
 @Component({
 
-    selector: 'my-app',
+    selector: 'my-dash',
 
-    templateUrl: 'app/displayboard.html',
+/**    template:`
+*<h1> my first angular2 app</h1>
+
+*<h1>{{title}}</h1>
+*`,
+*/
+templateUrl:'app/displayboard.html',
 styleUrls: ['app/dashboard.component.css'],
 
-directives:[NgClass]
-,
+directives:[NgClass],
+  providers: [
+    UserService, HTTP_PROVIDERS,
+     
+ provide(XHRBackend, { useClass: InMemoryBackendService }),
+ provide(SEED_DATA,  { useClass: UserData }) 
+]
 
-providers:[
-  UserService,
-  ROUTER_PROVIDERS, 
-  HTTP_PROVIDERS,
-   provide(XHRBackend, { useClass: InMemoryBackendService }),   
-   provide(SEED_DATA,  { useClass: UserData })  
 })
+
 export class DashboardComponent implements OnInit {
 	constructor(private _userservice:UserService){}
-	
+	userlist: User;
 	getUsers(){
-	this._userservice.getUsers()
+		this._userservice.getUsers()
 		.subscribe(
 		  users => this.userlist=users,
 		  error => this.errorMessage=<any>error);
@@ -50,7 +55,7 @@ export class DashboardComponent implements OnInit {
 
 	ngOnInit(){
 		this.getUsers();
-	};
+	}
 
  
 	title="Im so stinky ~ Quinn ";
@@ -66,9 +71,7 @@ export class DashboardComponent implements OnInit {
 
 	};
 
-/**
-*	public userlist=Users;
-*/
+
 	bulletin='';
 
 	
@@ -159,4 +162,4 @@ export class DashboardComponent implements OnInit {
 	
 }
 }
-			
+					

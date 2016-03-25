@@ -1,5 +1,6 @@
 import {bootstrap}    from 'angular2/platform/browser'
-import {AppComponent} from './app.component'
+import {DashboardComponent} from './dashboard.component'
 import 'rxjs/Rx';
+import {TopComponent} from './topelement'
 
-bootstrap(AppComponent);
+bootstrap(TopComponent);

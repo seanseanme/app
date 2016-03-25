@@ -27,18 +27,17 @@ styleUrls: ['app/dashboard.component.css'],
 
 directives:[NgClass],
   providers: [
-    HTTP_PROVIDERS,
-    
- UserService,
-  
+    UserService, HTTP_PROVIDERS,
+     
  provide(XHRBackend, { useClass: InMemoryBackendService }),
  provide(SEED_DATA,  { useClass: UserData }) 
 ]
+
 })
 
 export class AppComponent implements OnInit {
 	constructor(private _userservice:UserService){}
-	
+	userlist: User;
 	getUsers(){
 		this._userservice.getUsers()
 		.subscribe(
@@ -163,4 +162,4 @@ export class AppComponent implements OnInit {
 	
 }
 }
-	
+			

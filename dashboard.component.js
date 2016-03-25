@@ -41,9 +41,6 @@ System.register(['angular2/core', 'angular2/common', 'angular2/http', './user.se
                         delay: 5,
                         status: "nil",
                     };
-                    /**
-                    *	public userlist=Users;
-                    */
                     this.bulletin = '';
                 }
                 DashboardComponent.prototype.getUsers = function () {
@@ -62,7 +59,6 @@ System.register(['angular2/core', 'angular2/common', 'angular2/http', './user.se
                 DashboardComponent.prototype.ngOnInit = function () {
                     this.getUsers();
                 };
-                ;
                 DashboardComponent.prototype.isontime = function (delay) {
                     if (delay < 6) {
                         this.onTime = true;
@@ -105,16 +101,21 @@ System.register(['angular2/core', 'angular2/common', 'angular2/http', './user.se
                 };
                 DashboardComponent = __decorate([
                     core_1.Component({
-                        selector: 'my-app',
+                        selector: 'my-dash',
+                        /**    template:`
+                        *<h1> my first angular2 app</h1>
+                        
+                        *<h1>{{title}}</h1>
+                        *`,
+                        */
                         templateUrl: 'app/displayboard.html',
                         styleUrls: ['app/dashboard.component.css'],
                         directives: [common_1.NgClass],
                         providers: [
-                            user_service_1.UserService,
-                            ROUTER_PROVIDERS,
-                            http_1.HTTP_PROVIDERS,
+                            user_service_1.UserService, http_1.HTTP_PROVIDERS,
                             core_1.provide(http_2.XHRBackend, { useClass: core_2.InMemoryBackendService }),
-                            core_1.provide(core_2.SEED_DATA, { useClass: user_data_1.UserData })]
+                            core_1.provide(core_2.SEED_DATA, { useClass: user_data_1.UserData })
+                        ]
                     }), 
                     __metadata('design:paramtypes', [user_service_1.UserService])
                 ], DashboardComponent);

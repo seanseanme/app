@@ -111,10 +111,10 @@ System.register(['angular2/core', 'angular2/common', 'angular2/http', './user.se
                         directives: [common_1.NgClass],
                         providers: [
                             user_service_1.UserService,
+                            ROUTER_PROVIDERS,
                             http_1.HTTP_PROVIDERS,
                             core_1.provide(http_2.XHRBackend, { useClass: core_2.InMemoryBackendService }),
-                            core_1.provide(core_2.SEED_DATA, { useClass: user_data_1.UserData })
-                        ],
+                            core_1.provide(core_2.SEED_DATA, { useClass: user_data_1.UserData })]
                     }), 
                     __metadata('design:paramtypes', [user_service_1.UserService])
                 ], DashboardComponent);
