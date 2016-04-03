@@ -22,7 +22,7 @@ System.register(['angular2/core'], function(exports_1) {
                 DummyComponent = __decorate([
                     core_1.Component({
                         selector: 'my-dashboard',
-                        template: '<h3>My Dashboard</h3>'
+                        template: '<h3>My Dummy</h3>'
                     }), 
                     __metadata('design:paramtypes', [])
                 ], DummyComponent);
